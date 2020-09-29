@@ -14,7 +14,7 @@ if not os.path.isfile(file_name):
 	url = "http://www.gutenberg.org/cache/epub/10031/pg10031.txt"
 	data = requests.get(url)
 	
-	with open(file_name, 'w') as f:
+	with open(file_name, 'w', encoding='utf-8') as f:
 		f.write(data.text)
     
 sess = gpt2.start_tf_sess()
@@ -22,6 +22,6 @@ sess = gpt2.start_tf_sess()
 gpt2.finetune(sess,
               file_name,
               model_name=model_name,
-              steps=1000)   # steps is max number of training steps
+              steps=500)   # steps is max number of training steps
 
 gpt2.generate(sess)

@@ -1,2 +1,3 @@
 .vscode/
 pyvenv.cfg
+ngrok-auth-token.txt
